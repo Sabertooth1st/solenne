@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Solenne · Hotel on the Sea</title>
+  <meta name="description" content="A day at Solenne — from the clearest water on the coast to a candlelit table and a room that listens to the sea." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a1a26'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' text-anchor='middle' fill='%23fbf8f2'%3ES%3C/text%3E%3C/svg%3E" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Solenne · Hotel on the Sea" />
+  <meta property="og:description" content="A day at Solenne — from the clearest water on the coast to a candlelit table and a room that listens to the sea." />
+  <meta property="og:image" content="https://sabertooth1st.github.io/solenne/og.jpg" />
+  <meta property="og:url" content="https://sabertooth1st.github.io/solenne/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0a1a26" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500&family=Geist+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-tone="light">
+
+  <!-- Stage: procedural WebGL scenes underneath, generated footage on top -->
+  <div class="stage" aria-hidden="true">
+    <canvas id="gl"></canvas>
+    <canvas id="footage"></canvas>
+    <div class="grade"></div>
+    <div class="grain"></div>
+  </div>
+
+  <!-- Intro veil -->
+  <div class="veil" id="veil">
+    <div class="veil__mark">
+      <span>S</span><span>o</span><span>l</span><span>e</span><span>n</span><span>n</span><span>e</span>
+    </div>
+    <div class="veil__sub">Hotel on the Sea · Cala Solenne</div>
+  </div>
+
+  <header class="nav">
+    <a class="nav__brand" href="#top" aria-label="Solenne home">Solenne</a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#suite">Rooms</a>
+      <a href="#lume">Dining</a>
+      <a href="#cove">Sea Club</a>
+    </nav>
+    <a class="nav__cta" href="#stay">Reserve</a>
+  </header>
+
+  <!-- Day clock: scrubs with the story -->
+  <aside class="clock" aria-hidden="true">
+    <div class="clock__label">Local time · Cala Solenne</div>
+    <div class="clock__time" id="clockTime">11:02</div>
+    <div class="clock__rail"><div class="clock__fill" id="clockFill"></div></div>
+    <ol class="clock__chapters" id="chapters"></ol>
+  </aside>
+
+  <div class="cue" id="cue" aria-hidden="true">
+    <span>Scroll to dive</span>
+    <i></i>
+  </div>
+
+  <!-- Story beats. Fixed panels, revealed by scroll position (see js/main.js). -->
+  <main class="beats">
+    <section class="beat beat--hero" data-beat="hero" id="top">
+      <p class="eyebrow">Cala Solenne · Est. 1962</p>
+      <h1 class="display">Begin where the<br/>water is <em>clearest.</em></h1>
+    </section>
+
+    <section class="beat beat--left-low" data-beat="cove" id="cove">
+      <p class="eyebrow"><span class="t">11:04</span> The Cove</p>
+      <h2 class="display">Forty feet of <em>glass</em>,<br/>straight off the rocks.</h2>
+      <p class="lede">The Sea Club ladder drops into a cove so clear you can count the stones on the bottom. Mornings, it is yours.</p>
+    </section>
+
+    <section class="beat beat--right" data-beat="below">
+      <p class="eyebrow"><span class="t">11:05</span> Below</p>
+      <h2 class="display">Sound falls away.<br/>Light comes down<br/>in <em>ribbons.</em></h2>
+    </section>
+
+    <section class="beat beat--left" data-beat="arrival">
+      <p class="eyebrow"><span class="t">13:30</span> Arrival</p>
+      <h2 class="display">Salt still in your hair,<br/>the <em>cool</em> of the hall.</h2>
+      <p class="lede">A 1962 limestone villa, thirty-one rooms, every one facing the water.</p>
+    </section>
+
+    <section class="beat beat--right-low" data-beat="suite" id="suite">
+      <p class="eyebrow"><span class="t">15:10</span> Suite Mare</p>
+      <h2 class="display">Linen, limestone,<br/>and a window the<br/>width of the <em>sea.</em></h2>
+      <dl class="specs">
+        <div><dt>Size</dt><dd>64 m²</dd></div>
+        <div><dt>Terrace</dt><dd>Private, west</dd></div>
+        <div><dt>Bath</dt><dd>Carved stone</dd></div>
+      </dl>
+    </section>
+
+    <section class="beat beat--right-low" data-beat="terrace">
+      <p class="eyebrow"><span class="t">18:40</span> The Terrace</p>
+      <h2 class="display">The sun goes down<br/>on <em>your</em> side of the house.</h2>
+    </section>
+
+    <section class="beat beat--left-low" data-beat="lume" id="lume">
+      <p class="eyebrow"><span class="t">20:15</span> Ristorante Lume</p>
+      <h2 class="display">Twelve tables.<br/>One <em>terrace.</em><br/>This morning's catch.</h2>
+    </section>
+
+    <section class="beat beat--left beat--menu" data-beat="dinner">
+      <p class="eyebrow"><span class="t">21:30</span> Dinner</p>
+      <h2 class="display">Candlelight, a cold Fiano,<br/>nowhere <em>else</em> to be.</h2>
+      <ol class="menu">
+        <li><span>Crudo di ricciola</span><i>blood orange, fennel pollen</i></li>
+        <li><span>Linguine alle vongole</span><i>lemon, bottarga</i></li>
+        <li><span>Branzino al sale</span><i>baked in sea salt, for two</i></li>
+        <li><span>Delizia al limone</span><i>Amalfi lemon, cream</i></li>
+      </ol>
+    </section>
+
+    <section class="beat beat--left" data-beat="night">
+      <p class="eyebrow"><span class="t">23:50</span> Night</p>
+      <h2 class="display">Leave the shutters open.<br/>The sea will keep <em>talking.</em></h2>
+    </section>
+
+    <section class="beat beat--final" data-beat="stay" id="stay">
+      <p class="eyebrow">April — October</p>
+      <h2 class="display display--xl">Stay at <em>Solenne.</em></h2>
+      <a class="button" href="#stay">Reserve a room</a>
+      <p class="fine">Cala Solenne · Thirty-one rooms on the sea</p>
+    </section>
+  </main>
+
+  <!-- Scroll length. Height is set from the scene timeline in JS. -->
+  <div class="track" id="track"></div>
+
+  <noscript><p class="noscript">This experience needs JavaScript.</p></noscript>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/shader.js"></script>
+  <script src="js/stage.js"></script>
+  <script src="js/footage.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+{
+  "fps": 20,
+  "scenes": {
+    "0": {
+      "dir": "media/frames/0-cove",
+      "count": 121,
+      "ext": "webp",
+      "focus": 0.6
+    },
+    "1": {
+      "dir": "media/frames/1-below",
+      "count": 121,
+      "ext": "webp",
+      "focus": 0.45
+    },
+    "2": {
+      "dir": "media/frames/2-arrival",
+      "count": 101,
+      "ext": "webp",
+      "focus": 0.5
+    },
+    "3": {
+      "dir": "media/frames/3-suite",
+      "count": 121,
+      "ext": "webp",
+      "focus": 0.55
+    },
+    "4": {
+      "dir": "media/frames/4-terrace",
+      "count": 101,
+      "ext": "webp",
+      "focus": 0.35
+    },
+    "5": {
+      "dir": "media/frames/5-lume",
+      "count": 121,
+      "ext": "webp",
+      "focus": 0.45
+    },
+    "6": {
+      "dir": "media/frames/6-dinner",
+      "count": 101,
+      "ext": "webp",
+      "focus": 0.6
+    },
+    "7": {
+      "dir": "media/frames/7-night",
+      "count": 121,
+      "ext": "webp",
+      "focus": 0.57
+    }
+  }
+}
